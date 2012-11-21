@@ -1,0 +1,85 @@
+# generatepicons.py -- Generator for @ocram's picons
+
+This script generates @ocram's picons from the source images that are available
+at <https://github.com/ocram/picons>. The resulting picons are as close to
+the [originals](http://ocram.github.com/picons/) as possible.
+
+## Why?
+
+Because I wanted to produce the final versions of some of the TV channel logos
+I was developing before pushing the changes to @ocram. The script he uses to
+produce is original picons [is not available](https://github.com/ocram/picons/pull/60#issuecomment-10409548)
+so I wrote my own.
+
+## Dependencies
+
+* [Python 2.x](http://python.org)
+* [pgmagick](http://bitbucket.org/hhatto/pgmagick)
+* [python-progressbar](http://code.google.com/p/python-progressbar/)
+
+On Debian/Ubuntu based operating systems these can be installed by
+installing the packages
+
+    python-pgmagick python-progressbar
+
+## Downloading
+
+generatepicons home page is at
+<http://solitudo.net/software/misc/generatepicons/> and it can be downloaded
+by cloning the public Git repository at `git://scm.solitudo.net/generatepicons.git`.
+Gitweb interface is available at
+<http://scm.solitudo.net/gitweb/public/generatepicons.git>.
+
+Also available at [Github](https://github.com): <https://github.com/tjormola/generatepicons>
+
+## Installation
+
+Just install the dependencies, clone the Git repo and put `generatepicons.py`
+anywhere you want (or run directly from the cloned working directory).
+
+## Usage
+
+Run
+
+    /path/to/generatepicons.py --help
+
+for full command line help.
+
+Typical use case to generate all the picons and symlinks for them would be
+
+    git clone git://github.com/ocram/picons.git
+    cd picons
+    /path/to/generatepicons.py
+    for dir in ocram-picons/*; do sh picons.sh $dir; done
+
+and under `ocram-picons` you would find subdirectories that
+contain the ready stuff.
+
+During the execution of the script you might see a lot of lines like this in
+the terminal:
+
+    gx=0.321210, gy=0.597870, bx=0.155890, by=0.066040
+    wx=0.345750, wy=0.358550, rx=0.648500, ry=0.330880
+    gx=0.321210, gy=0.597870, bx=0.155890, by=0.066040
+    wx=0.345760, wy=0.358580, rx=0.648450, ry=0.330860
+
+This is caused by warning `printf`'s in an older versions of
+[libpng](http://www.libpng.org/pub/png/). It's harmless though annoying.
+See <http://www.imagemagick.org/discourse-server/viewtopic.php?f=3&t=20630>.
+
+## Thanks
+
+Thanks to @ocram for initiating his [TV channel logo project](http://ocram.github.com/picons/)
+and [sharing some info](https://github.com/ocram/picons/pull/60#issuecomment-10479427)
+how his script works so I was able to replicate the results of the original as
+closely as possible.
+
+Also thanks to @tkurbad for his [piconlinks.py](https://github.com/tkurbad/piconscripts).
+Some of the bulk code (args parsing, main function) was shamelessly stolen from
+his script. This is my first public Python script, after all :)
+
+## Copyright and licensing
+
+Copyright © 2012 Tuomas Jormola <tj@solitudo.net> <http://solitudo.net>
+
+Licensed under the terms of the [GNU General Public License Version 2.0](http://www.gnu.org/licenses/gpl-2.0.html).
