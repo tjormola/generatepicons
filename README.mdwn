@@ -8,7 +8,7 @@ the [originals](http://ocram.github.com/picons/) as possible.
 
 Because I wanted to produce the final versions of some of the TV channel logos
 I was developing before pushing the changes to @ocram. The script he uses to
-produce is original picons [is not available](https://github.com/ocram/picons/pull/60#issuecomment-10409548)
+produce his original picons [is not available](https://github.com/ocram/picons/pull/60#issuecomment-10409548)
 so I wrote my own.
 
 ## Dependencies
